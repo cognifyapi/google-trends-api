@@ -46,7 +46,7 @@ A comprehensive guide for integrating the **Google Trends API from [Cognify API]
 
 * **Node.js** (v14 or higher recommended)
 * **npm** or **yarn**
-* A valid **RapidAPI Key** from the [CognifyAPI Dashboard](https://www.google.com/search?q=https://rapidapi.com/user/cognifyapi).
+* A valid **RapidAPI Key** from the [CognifyAPI Dashboard](https://rapidapi.com/johnjames28/api/google-trends21)
 
 ### Installation
 
