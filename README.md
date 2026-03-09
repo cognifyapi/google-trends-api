@@ -111,7 +111,7 @@ const getTrendingNow = async () => {
 
 ```
 
-## 2. Explore Search Queries
+## 2. Get Explore Top/Rising Searched Queries
 
 Retrieve a list of trending search queries based on specific categories and timeframes.
 
@@ -139,7 +139,7 @@ const exploreSearchQueries = async () => {
 
 ```
 
-## 3. Explore Specific Search Term
+## 3.  Get Explore Search Term
 
 Get detailed search interest data for a single keyword, including regional breakdowns.
 
@@ -176,7 +176,7 @@ const exploreSearchTerm = async (keyword) => {
 
 ```
 
-## 4. Compare Search Terms
+## 4. Get Explore Search Compare Term
 
 Benchmark the search interest of two different keywords side-by-side.
 
@@ -215,7 +215,7 @@ const compareSearchTerms = async (term1, term2) => {
 
 ```
 
-## 5. Trending Suggestions
+## 5. Get Trending Suggestions
 
 Predictive trends based on partial keyword strings.
 
@@ -243,7 +243,7 @@ const getTrendingSuggestions = async (partialKeyword) => {
 
 ```
 
-## 6. Google Search Autocomplete
+## 6.Get Explore Autocomplete API
 
 Direct access to the Google Autocomplete engine for real-time search suggestions.
 
