@@ -8,7 +8,7 @@ A comprehensive guide for integrating the **Google Trends API from [Cognify API]
 - **API Documentation:** [Google Trends API Docs](https://cognifyapi.com/docs/google-trends-docs)
 - **More Info:** [Google Trends API](https://cognifyapi.com/google-trends)
 - **Official Website:** [CognifyAPI.com](https://cognifyapi.com/)
-- **Provider Platform:** [RapidAPI Link](https://rapidapi.com/johnjames28/api/google-trends21)
+- **Provider Platform:** [Google Trends Api from RapidApi Link](https://rapidapi.com/johnjames28/api/google-trends21)
 
 ---
 
