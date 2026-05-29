@@ -1,8 +1,9 @@
 # Google Trends API by CognifyApi - Implementation Guide
 
 A comprehensive guide for integrating the **Google Trends API from [Cognify API](https://cognifyapi.com)** into your Node.js applications. This API allows you to programmatically access real-time search trends, keyword comparisons, and autocomplete suggestions.
+
 #### Free trial No credit card required.
-[![Start Now](https://img.shields.io/badge/Start%20Now%20-🚀-blue?style=for-the-badge&logo=google-cloud)](https://cognifyapi.com/google-trends)
+[![Start Now](https://img.shields.io/badge/Start%20Now%20-🚀-blue?style=for-the-badge&logo=google-cloud)](https://cognifyapi.com/google-trends?utm_source=github&utm_medium=repo&utm_campaign=google_trends_api&utm_content=cta)
 ---
 
 ## 🔗 Official Resources
