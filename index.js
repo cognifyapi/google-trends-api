@@ -1,47 +1,91 @@
-const axios = require('axios');
+const axios = require("axios");
 
-const API_KEY = 'YOUR_RAPIDAPI_KEY';
-const BASE_URL = 'https://google-trends21.p.rapidapi.com';
+const API_KEY = process.env.COGNIFY_API_KEY;
 
-const config = {
+if (!API_KEY) {
+  throw new Error("Set the COGNIFY_API_KEY environment variable before running this example.");
+}
+
+const api = axios.create({
+  baseURL: "https://api.cognifyapi.com",
   headers: {
-    'x-rapidapi-host': 'google-trends21.p.rapidapi.com',
-    'x-rapidapi-key': API_KEY
-  }
-};
+    "x-cognifyapi-key": API_KEY,
+  },
+});
+
+const requests = [
+  {
+    name: "Trending Now",
+    path: "/google-trends-now",
+    params: {
+      country: "US",
+      time: 4,
+      category: 0,
+      articleCount: 1,
+      hl: "en-US",
+      tz: 300,
+      enableRelated: true,
+      enableTimeSeries: true,
+    },
+  },
+  {
+    name: "Explore Search Terms",
+    path: "/trends-explore-search-terms",
+    params: {
+      keyword: "trump",
+      country: "US",
+      time: "today 12-m",
+      category: 0,
+      enableRelatedQueries: true,
+      enableInterestByRegion: true,
+      enableInterestByOverTime: true,
+    },
+  },
+  {
+    name: "Compare Search Terms",
+    path: "/trends-explore-compare-search-terms",
+    params: {
+      keywordOne: "pepsi",
+      keywordTwo: "cocacola",
+      country: "US",
+      time: "today 12-m",
+      category: 0,
+      enableRelatedQueries: true,
+      enableInterestByRegion: true,
+      enableInterestByOverTime: true,
+    },
+  },
+  {
+    name: "Searched Queries",
+    path: "/trends-searched-queries",
+    params: {
+      country: "US",
+      time: "today 12-m",
+      category: 0,
+    },
+  },
+  {
+    name: "Trends Suggestions",
+    path: "/trends-suggestions",
+    params: {
+      keyword: "trump",
+    },
+  },
+];
 
 async function runTrends() {
-  try {
-    // 1. Trending Now
-    const trending = await axios.get(`${BASE_URL}/getTrendingNow?country=US&time=4`, config);
-    console.log('✅ 1. Trending Now:', trending.data);
-
-    // 2. Explore Search Queries
-    const queries = await axios.get(`${BASE_URL}/getExploreSearchQueries?country=US&time=now%207-d&category=0`, config);
-    console.log('✅ 2. Search Queries:', queries.data);
-
-    // 3. Explore Specific Search Term
-    const searchTerm = await axios.get(`${BASE_URL}/getExploreSearchTerm?keyword=trump&country=US&time=now%207-d`, config);
-    console.log('✅ 3. Search Term Details:', searchTerm.data);
-
-    // 4. Compare Search Terms
-    const compare = await axios.get(`${BASE_URL}/getExploreCompareSearchTerm?keywordOne=trump&keywordTwo=biden&country=US&time=now%207-d`, config);
-    console.log('✅ 4. Comparison Data:', compare.data);
-
-    // 5. Trending Suggestions
-    const suggestions = await axios.get(`${BASE_URL}/getTrendingSuggestions?keyword=donald%20tru`, config);
-    console.log('✅ 5. Trending Suggestions:', suggestions.data);
-
-    // 6. Google Search Autocomplete
-    const autocomplete = await axios.get(`${BASE_URL}/getGoogleSearchAutoComplete?query=trump`, config);
-    console.log('✅ 6. Autocomplete:', autocomplete.data);
-
-    // 7. Trending Categories
-    const categories = await axios.get(`${BASE_URL}/getTrendingCategories`, config);
-    console.log('✅ 7. Categories:', categories.data);
-
-  } catch (error) {
-    console.error('❌ Error:', error.response ? error.response.data : error.message);
+  for (const request of requests) {
+    try {
+      const response = await api.get(request.path, {
+        params: request.params,
+      });
+      console.log(`${request.name}:`, response.data);
+    } catch (error) {
+      console.error(
+        `${request.name} failed:`,
+        error.response?.data || error.message
+      );
+    }
   }
 }
 
